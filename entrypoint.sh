@@ -1,4 +1,6 @@
-#!/bin/sh -l
+#!/bin/bash
+
+set -e
 
 mkdir -p ~/.ssk || true
 echo $KNOWN_HOSTS >> ~/.ssk/known_hosts
