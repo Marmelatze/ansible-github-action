@@ -1,6 +1,12 @@
 name: "Ansible CLI Github Action"
 description: "Allows one to run Ansible and Linux related commands"
 inputs:
+  private_key:
+    description: 'Private SSH Key for pushing to the target repo'
+    required: true
+  known_hosts:
+    description: 'Known hosts'
+    required: true
   command:
     description: "Command to execute"
     required: true
@@ -8,5 +14,8 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
+  env:
+    SSH_PRIVATE_KEY: ${{ inputs.private_key }}
+    KNOWN_HOSTS: ${{ inputs.known_hosts }}
   args:
     - ${{ inputs.command }}
