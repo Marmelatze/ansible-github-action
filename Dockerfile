@@ -1,9 +1,7 @@
-FROM python:3.8-alpine
+FROM ubuntu:bionic
 
-RUN apk update && apk upgrade && \
-    apk add --no-cache bash git git-fast-import openssh
-
-RUN pip3 install ansible
+RUN apt-get update \
+  && apt install -y python3-pip ssh
 
 COPY entrypoint.sh /entrypoint.sh
 
