@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-mkdir -p ~/.ssk/known_hosts || true
+mkdir -p ~/.ssk || true
 echo $KNOWN_HOSTS >> ~/.ssk/known_hosts
 
 eval `ssh-agent -s`
